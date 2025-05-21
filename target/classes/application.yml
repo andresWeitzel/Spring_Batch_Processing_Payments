@@ -1,0 +1,22 @@
+spring:
+  batch:
+    job:
+      enabled: false
+    initialize-schema: always
+
+payment:
+  commission:
+    rate: 0.02
+  validation:
+    min-amount: 10.0
+    max-amount: 10000.0
+    supported-currencies: USD,EUR,GBP,JPY
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  batch:
+    job:
+      enabled: true

@@ -1,0 +1,21 @@
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+1,100.50,USD,PENDING,2024-05-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
+2,75.25,EUR,PENDING,2024-05-20T10:05:00,TRANSFER,Jane Smith,jane@example.com
+3,50.00,GBP,PENDING,2024-05-20T10:10:00,PAYPAL,Bob Johnson,bob@example.com
+4,200.00,USD,PENDING,2024-05-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com
+5,150.75,EUR,PENDING,2024-05-20T10:20:00,CRYPTO,Charlie Wilson,charlie@example.com
+6,5.00,USD,PENDING,2024-05-20T10:25:00,CREDIT_CARD,Invalid Amount,invalid@example.com
+7,15000.00,EUR,PENDING,2024-05-20T10:30:00,TRANSFER,Too Large,large@example.com
+8,100.00,MXN,PENDING,2024-05-20T10:35:00,PAYPAL,Invalid Currency,currency@example.com
+9,200.00,USD,PENDING,2024-05-20T10:40:00,CREDIT_CARD,Invalid Type,type@example.com
+10,150.00,GBP,PENDING,2024-05-20T10:45:00,CREDIT_CARD,Invalid Email,invalid-email
+11,300.00,JPY,PENDING,2024-05-20T10:50:00,DEBIT_CARD,Valid Japanese,valid@example.com
+12,0.00,USD,PENDING,2024-05-20T10:55:00,PAYPAL,Zero Amount,zero@example.com
+13,9999.99,USD,PENDING,2024-05-20T11:00:00,CREDIT_CARD,Max Amount,max@example.com
+14,100.00,USD,PENDING,2024-05-20T11:05:00,CRYPTO,Special Chars,special@example.com
+15,50.00,EUR,PENDING,2024-05-20T11:10:00,TRANSFER,Multiple Spaces,multiple@example.com
+16,25.00,USD,PENDING,2024-05-20T11:15:00,CREDIT_CARD,Null Date,
+17,100.00,USD,PENDING,,CREDIT_CARD,Missing Date,missing@example.com
+18,100.00,USD,PENDING,2024-05-20T11:20:00,,Missing Type,missing@example.com
+19,100.00,USD,PENDING,2024-05-20T11:25:00,CREDIT_CARD,,Missing Name
+20,100.00,USD,PENDING,2024-05-20T11:30:00,CREDIT_CARD,Missing Email,

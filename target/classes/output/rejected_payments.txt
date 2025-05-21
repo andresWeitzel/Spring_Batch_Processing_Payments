@@ -1,0 +1,10 @@
+6,5.00,USD,INVALID,2024-05-20T10:25,CREDIT_CARD,Invalid Amount,invalid@example.com,El monto es menor al mínimo permitido: 10.0
+7,15000.00,EUR,INVALID,2024-05-20T10:30,TRANSFER,Too Large,large@example.com,El monto es mayor al máximo permitido: 10000.0
+8,100.00,MXN,INVALID,2024-05-20T10:35,PAYPAL,Invalid Currency,currency@example.com,Moneda no soportada: MXN
+10,150.00,GBP,INVALID,2024-05-20T10:45,CREDIT_CARD,Invalid Email,invalid-email,Formato de email inválido: invalid-email
+12,0.00,USD,INVALID,2024-05-20T10:55,PAYPAL,Zero Amount,zero@example.com,El monto es menor al mínimo permitido: 10.0
+16,25.00,USD,INVALID,2024-05-20T11:15,CREDIT_CARD,Null Date,,Email del cliente es requerido
+17,100.00,USD,INVALID,,CREDIT_CARD,Missing Date,missing@example.com,Fecha de pago es requerida
+18,100.00,USD,INVALID,2024-05-20T11:20,,Missing Type,missing@example.com,Tipo de pago es requerido
+19,100.00,USD,INVALID,2024-05-20T11:25,CREDIT_CARD,,Missing Name,Formato de email inválido: Missing Name
+20,100.00,USD,INVALID,2024-05-20T11:30,CREDIT_CARD,Missing Email,,Email del cliente es requerido

@@ -1,0 +1,10 @@
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/paymentsdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: TU_USUARIO
+    password: TU_PASSWORD
+  batch:
+    job:
+      enabled: true 

@@ -1,0 +1,8 @@
+com\example\batch\config\BatchConfig$1.class
+com\example\batch\processor\PaymentItemProcessor$PaymentValidationException.class
+com\example\batch\config\BatchConfig$StringToLocalDateTimeConverter.class
+com\example\batch\config\BatchConfig.class
+com\example\batch\BatchPaymentsApplication.class
+com\example\batch\model\Payment.class
+com\example\batch\processor\PaymentItemProcessor.class
+com\example\batch\enums\PaymentType.class

@@ -1,0 +1,5 @@
+1,100.50,USD,PENDING,2024-05-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
+2,75.25,EUR,PENDING,2024-05-20T10:05:00,TRANSFER,Jane Smith,jane@example.com
+3,50.00,GBP,PENDING,2024-05-20T10:10:00,PAYPAL,Bob Johnson,bob@example.com
+4,200.00,USD,PENDING,2024-05-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com
+5,150.75,EUR,PENDING,2024-05-20T10:20:00,CRYPTO,Charlie Wilson,charlie@example.com 
