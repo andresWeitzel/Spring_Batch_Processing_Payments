@@ -1,3 +1,7 @@
+<div align = "center">
+  <img src="./src/main/resources/static/img/payments.png" >
+</div>
+
 # Spring Batch Payments Processor
 
 Este proyecto implementa un procesador de pagos usando Spring Batch que valida y procesa pagos desde un archivo de entrada, generando archivos de salida para pagos procesados, rechazados y un reporte general.
