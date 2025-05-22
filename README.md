@@ -1,5 +1,5 @@
 <div align = "center">
-  <img src="./src/main/resources/static/img/payments.png" >
+  <img src="./src/main/resources/static/img/spring_batch_payments.png" >
 </div>
 
 # Spring Batch Payments Processor
@@ -59,18 +59,63 @@ src/main/java/com/example/batch/
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
+2,500.00,EUR,PENDING,2024-03-20T10:05:00,DEBIT_CARD,Jane Smith,jane@example.com
+3,1000.00,GBP,PENDING,2024-03-20T10:10:00,CREDIT_CARD,Bob Johnson,bob@example.com
+4,5000.00,JPY,PENDING,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com
 ```
 
 ### Archivo de Pagos Procesados (processed_payments.txt)
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,amountInUSD,commission,validationStatus
 1,100.00,USD,PROCESSED,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com,100.00,2.00,VALID
+2,500.00,EUR,PROCESSED,2024-03-20T10:05:00,DEBIT_CARD,Jane Smith,jane@example.com,545.00,10.90,VALID
+3,1000.00,GBP,PROCESSED,2024-03-20T10:10:00,CREDIT_CARD,Bob Johnson,bob@example.com,1270.00,25.40,VALID
+4,5000.00,JPY,PROCESSED,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com,33.50,0.67,VALID
 ```
 
 ### Archivo de Pagos Rechazados (rejected_payments.txt)
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,errorMessage
-2,5.00,USD,INVALID,2024-03-20T10:00:00,CREDIT_CARD,Jane Doe,jane@example.com,El monto es menor al mínimo permitido: 10.0
+5,5.00,USD,INVALID,2024-03-20T10:20:00,CREDIT_CARD,Charlie Wilson,charlie@example.com,El monto es menor al mínimo permitido: 10.0
+6,15000.00,EUR,INVALID,2024-03-20T10:25:00,DEBIT_CARD,Diana Miller,diana@example.com,El monto excede el máximo permitido: 10000.0
+7,200.00,MXN,INVALID,2024-03-20T10:30:00,CREDIT_CARD,Edward Davis,edward@example.com,Moneda no soportada: MXN
+8,300.00,GBP,INVALID,2024-03-20T10:35:00,INVALID_TYPE,Frank Lee,frank@example.com,Tipo de pago no válido: INVALID_TYPE
+9,400.00,USD,INVALID,2024-03-20T10:40:00,CREDIT_CARD,Grace Kim,invalid-email,Formato de email inválido
+10,500.00,EUR,INVALID,2024-03-20T10:45:00,DEBIT_CARD,Henry Park,,Email no puede estar vacío
+11,600.00,GBP,INVALID,2024-03-20T10:50:00,CREDIT_CARD,Ivy Chen,ivy@example.com,Fecha de pago inválida o vacía
+```
+
+### Archivo de Reporte General (payment_report.txt)
+```
+=== Reporte de Procesamiento de Pagos ===
+Fecha de Procesamiento: 2024-03-20T11:00:00
+Total de Pagos Procesados: 4
+Total de Pagos Rechazados: 7
+Total de Pagos: 11
+
+=== Estadísticas por Moneda ===
+USD: 2 pagos (1 procesado, 1 rechazado)
+EUR: 3 pagos (1 procesado, 2 rechazados)
+GBP: 3 pagos (1 procesado, 2 rechazados)
+JPY: 1 pago (1 procesado, 0 rechazados)
+MXN: 1 pago (0 procesados, 1 rechazado)
+
+=== Estadísticas por Tipo de Pago ===
+CREDIT_CARD: 6 pagos
+DEBIT_CARD: 4 pagos
+INVALID_TYPE: 1 pago
+
+=== Razones de Rechazo ===
+Monto muy bajo: 1
+Monto muy alto: 1
+Moneda no soportada: 1
+Tipo de pago inválido: 1
+Email inválido: 2
+Fecha inválida: 1
+
+=== Montos Totales ===
+Total Procesado (USD): 1948.40
+Total Comisiones (USD): 38.97
 ```
 
 ## Ejemplos de Pagos
