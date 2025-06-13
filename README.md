@@ -2,60 +2,112 @@
   <img src="./src/main/resources/static/img/spring_batch_payments.png" >
 </div>
 
-# Spring Batch Payments Processor
 
-Este proyecto implementa un procesador de pagos usando Spring Batch que valida y procesa pagos desde un archivo de entrada, generando archivos de salida para pagos procesados, rechazados y un reporte general.
+  <div align="right">
+    <img width="24" height="24" src="./src/main/resources/static/icons/backend/java/png/java.png" />
+    <img width="20" height="20" src="./src/main/resources/static/icons/devops/png/maven.png" />
+    <img width="22" height="22" src="./src/main/resources/static/icons/devops/png/postman.png" />
+    <img width="22" height="22" src="./src/main/resources/static/icons/devops/png/git.png" />
+    <img width="20" height="20" src="./src/main/resources/static/icons/backend/java/png/junit.png" />
+    <img width="20" height="20" src="./src/main/resources/static/icons/devops/png/swagger.png" /> 
+    <img width="20" height="20" src="./src/main/resources/static/icons/backend/java/png/spring-boot.png" /> 
+    <img width="20" height="20" src="./src/main/resources/static/icons/backend/java/png/spring-batch.png" />    
+  </div>
 
-## Características
 
-- Procesamiento de pagos en lotes
-- Validación de montos, monedas y datos del cliente
-- Cálculo de comisiones
-- Generación de reportes
-- Manejo de errores y pagos rechazados
-- Soporte para múltiples monedas (USD, EUR, GBP, JPY)
+<br>
 
-## Requisitos
+<br>
 
-- Java 17 o superior
-- Maven 3.6 o superior
+
+<div align="right"> 
+  <a href="https://github.com/andresWeitzel/Spring_Batch_Processing_Payments/blob/master/src/main/resources/static/translation/README.es.md">
+    <img width="65" height="40" src="./src/main/resources/static/icons/translation/arg-flag.jpg" />
+  </a> 
+  <a href="https://github.com/andresWeitzel/Spring_Batch_Processing_Payments/blob/master/README.md">
+    <img width="65" height="40" src="./src/main/resources/static/icons/translation/eeuu-flag.jpg" />
+  </a> 
+</div>
+
+<br>
+
+<br>
+
+<div align="center">  
+
+# Spring Batch Payments Processor ![Status](./src/main/resources/static/icons/badges/status-completed.svg)
+
+</div>
+
+This project implements a payment processor using Spring Batch that validates and processes payments from an input file, generating output files for processed payments, rejected payments, and a general report.
+
+* [Functional tests playlist]() <a href="" target="_blank"> <img src="./src/main/resources/static/icons/social-networks/yt.png" width="25" /></a>
+
+
+## Sections
+
+
+<details>
+<summary>1. Features</summary>
+
+- Batch payment processing
+- Amount, currency, and customer data validation
+- Commission calculation
+- Report generation
+- Error handling and rejected payments
+- Support for multiple currencies (USD, EUR, GBP, JPY)
+</details>
+
+<details>
+<summary>2. Requirements</summary>
+
+- Java 17 or higher
+- Maven 3.6 or higher
 - Spring Boot 2.7.0
 - Spring Batch 4.3.6
+</details>
 
-## Configuración
+<details>
+<summary>3. Configuration</summary>
 
-El proyecto utiliza diferentes perfiles para desarrollo y producción. Para ejecutar en modo desarrollo:
+The project uses different profiles for development and production. To run in development mode:
 
 ```bash
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
+</details>
 
-## Estructura del Proyecto
+<details>
+<summary>4. Project Structure</summary>
 
 ```
 src/main/java/com/example/batch/
-├── config/         # Configuración de Spring Batch
-├── model/          # Modelos de datos
-├── processor/      # Procesadores de pagos
-└── enums/          # Enumeraciones
+├── config/         # Spring Batch configuration
+├── model/          # Data models
+├── processor/      # Payment processors
+└── enums/          # Enumerations
 ```
+</details>
 
-## Flujo de Procesamiento
+<details>
+<summary>5. Processing Flow</summary>
 
-1. **Lectura de Pagos**: Lee pagos desde `input/payments.txt`
-2. **Validación y Procesamiento**: 
-   - Valida montos (mínimo: 10.00, máximo: 10000.00)
-   - Valida monedas soportadas
-   - Valida formato de email
-   - Calcula comisiones
-3. **Escritura de Resultados**:
-   - Pagos válidos → `output/processed_payments.txt`
-   - Pagos rechazados → `output/rejected_payments.txt`
-   - Reporte general → `output/payment_report.txt`
+1. **Payment Reading**: Reads payments from `input/payments.txt`
+2. **Validation and Processing**: 
+   - Validates amounts (minimum: 10.00, maximum: 10000.00)
+   - Validates supported currencies
+   - Validates email format
+   - Calculates commissions
+3. **Result Writing**:
+   - Valid payments → `output/processed_payments.txt`
+   - Rejected payments → `output/rejected_payments.txt`
+   - General report → `output/payment_report.txt`
+</details>
 
-## Formato de Archivos
+<details>
+<summary>6. File Formats</summary>
 
-### Archivo de Entrada (payments.txt)
+### Input File (payments.txt)
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
@@ -64,7 +116,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 4,5000.00,JPY,PENDING,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com
 ```
 
-### Archivo de Pagos Procesados (processed_payments.txt)
+### Processed Payments File (processed_payments.txt)
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,amountInUSD,commission,validationStatus
 1,100.00,USD,PROCESSED,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com,100.00,2.00,VALID
@@ -73,55 +125,57 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,amo
 4,5000.00,JPY,PROCESSED,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com,33.50,0.67,VALID
 ```
 
-### Archivo de Pagos Rechazados (rejected_payments.txt)
+### Rejected Payments File (rejected_payments.txt)
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,errorMessage
-5,5.00,USD,INVALID,2024-03-20T10:20:00,CREDIT_CARD,Charlie Wilson,charlie@example.com,El monto es menor al mínimo permitido: 10.0
-6,15000.00,EUR,INVALID,2024-03-20T10:25:00,DEBIT_CARD,Diana Miller,diana@example.com,El monto excede el máximo permitido: 10000.0
-7,200.00,MXN,INVALID,2024-03-20T10:30:00,CREDIT_CARD,Edward Davis,edward@example.com,Moneda no soportada: MXN
-8,300.00,GBP,INVALID,2024-03-20T10:35:00,INVALID_TYPE,Frank Lee,frank@example.com,Tipo de pago no válido: INVALID_TYPE
-9,400.00,USD,INVALID,2024-03-20T10:40:00,CREDIT_CARD,Grace Kim,invalid-email,Formato de email inválido
-10,500.00,EUR,INVALID,2024-03-20T10:45:00,DEBIT_CARD,Henry Park,,Email no puede estar vacío
-11,600.00,GBP,INVALID,2024-03-20T10:50:00,CREDIT_CARD,Ivy Chen,ivy@example.com,Fecha de pago inválida o vacía
+5,5.00,USD,INVALID,2024-03-20T10:20:00,CREDIT_CARD,Charlie Wilson,charlie@example.com,Amount is below minimum allowed: 10.0
+6,15000.00,EUR,INVALID,2024-03-20T10:25:00,DEBIT_CARD,Diana Miller,diana@example.com,Amount exceeds maximum allowed: 10000.0
+7,200.00,MXN,INVALID,2024-03-20T10:30:00,CREDIT_CARD,Edward Davis,edward@example.com,Unsupported currency: MXN
+8,300.00,GBP,INVALID,2024-03-20T10:35:00,INVALID_TYPE,Frank Lee,frank@example.com,Invalid payment type: INVALID_TYPE
+9,400.00,USD,INVALID,2024-03-20T10:40:00,CREDIT_CARD,Grace Kim,invalid-email,Invalid email format
+10,500.00,EUR,INVALID,2024-03-20T10:45:00,DEBIT_CARD,Henry Park,,Email cannot be empty
+11,600.00,GBP,INVALID,2024-03-20T10:50:00,CREDIT_CARD,Ivy Chen,ivy@example.com,Invalid or empty payment date
 ```
 
-### Archivo de Reporte General (payment_report.txt)
+### General Report File (payment_report.txt)
 ```
-=== Reporte de Procesamiento de Pagos ===
-Fecha de Procesamiento: 2024-03-20T11:00:00
-Total de Pagos Procesados: 4
-Total de Pagos Rechazados: 7
-Total de Pagos: 11
+=== Payment Processing Report ===
+Processing Date: 2024-03-20T11:00:00
+Total Processed Payments: 4
+Total Rejected Payments: 7
+Total Payments: 11
 
-=== Estadísticas por Moneda ===
-USD: 2 pagos (1 procesado, 1 rechazado)
-EUR: 3 pagos (1 procesado, 2 rechazados)
-GBP: 3 pagos (1 procesado, 2 rechazados)
-JPY: 1 pago (1 procesado, 0 rechazados)
-MXN: 1 pago (0 procesados, 1 rechazado)
+=== Currency Statistics ===
+USD: 2 payments (1 processed, 1 rejected)
+EUR: 3 payments (1 processed, 2 rejected)
+GBP: 3 payments (1 processed, 2 rejected)
+JPY: 1 payment (1 processed, 0 rejected)
+MXN: 1 payment (0 processed, 1 rejected)
 
-=== Estadísticas por Tipo de Pago ===
-CREDIT_CARD: 6 pagos
-DEBIT_CARD: 4 pagos
-INVALID_TYPE: 1 pago
+=== Payment Type Statistics ===
+CREDIT_CARD: 6 payments
+DEBIT_CARD: 4 payments
+INVALID_TYPE: 1 payment
 
-=== Razones de Rechazo ===
-Monto muy bajo: 1
-Monto muy alto: 1
-Moneda no soportada: 1
-Tipo de pago inválido: 1
-Email inválido: 2
-Fecha inválida: 1
+=== Rejection Reasons ===
+Amount too low: 1
+Amount too high: 1
+Unsupported currency: 1
+Invalid payment type: 1
+Invalid email: 2
+Invalid date: 1
 
-=== Montos Totales ===
-Total Procesado (USD): 1948.40
-Total Comisiones (USD): 38.97
+=== Total Amounts ===
+Total Processed (USD): 1948.40
+Total Commissions (USD): 38.97
 ```
+</details>
 
-## Ejemplos de Pagos
+<details>
+<summary>7. Payment Examples</summary>
 
-### Pagos Válidos
-1. Pago en USD dentro del rango permitido:
+### Valid Payments
+1. USD payment within allowed range:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
@@ -129,7 +183,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 3,1000.00,USD,PENDING,2024-03-20T10:10:00,CREDIT_CARD,Bob Johnson,bob@example.com
 ```
 
-2. Pago en EUR con email válido:
+2. EUR payment with valid email:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 4,500.00,EUR,PENDING,2024-03-20T11:00:00,DEBIT_CARD,Jane Smith,jane.smith@example.com
@@ -137,7 +191,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 6,2500.00,EUR,PENDING,2024-03-20T11:10:00,DEBIT_CARD,Charlie Wilson,charlie.wilson@example.com
 ```
 
-3. Pago en GBP con montos variados:
+3. GBP payment with varied amounts:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 7,50.00,GBP,PENDING,2024-03-20T12:00:00,CREDIT_CARD,David Miller,david.miller@example.com
@@ -145,7 +199,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 9,5000.00,GBP,PENDING,2024-03-20T12:10:00,CREDIT_CARD,Frank Lee,frank.lee@example.com
 ```
 
-4. Pago en JPY con diferentes tipos de pago:
+4. JPY payment with different payment types:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 10,10000.00,JPY,PENDING,2024-03-20T13:00:00,CREDIT_CARD,Grace Kim,grace.kim@example.com
@@ -153,8 +207,8 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 12,100000.00,JPY,PENDING,2024-03-20T13:10:00,CREDIT_CARD,Ivy Chen,ivy.chen@example.com
 ```
 
-### Pagos Rechazados
-1. Montos muy bajos:
+### Rejected Payments
+1. Very low amounts:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 13,5.00,USD,PENDING,2024-03-20T14:00:00,CREDIT_CARD,Jack Wilson,jack@example.com
@@ -162,7 +216,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 15,0.50,GBP,PENDING,2024-03-20T14:10:00,CREDIT_CARD,Liam Davis,liam@example.com
 ```
 
-2. Monedas no soportadas:
+2. Unsupported currencies:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 16,1000.00,MXN,PENDING,2024-03-20T15:00:00,DEBIT_CARD,Maria Garcia,maria@example.com
@@ -170,7 +224,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 18,2000.00,AUD,PENDING,2024-03-20T15:10:00,DEBIT_CARD,Olivia Lee,olivia@example.com
 ```
 
-3. Emails inválidos:
+3. Invalid emails:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 19,200.00,USD,PENDING,2024-03-20T16:00:00,CREDIT_CARD,Peter Davis,invalid-email
@@ -178,7 +232,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 21,400.00,GBP,PENDING,2024-03-20T16:10:00,CREDIT_CARD,Rachel Brown,missing@domain
 ```
 
-4. Montos muy altos:
+4. Very high amounts:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 22,15000.00,USD,PENDING,2024-03-20T17:00:00,DEBIT_CARD,Sam Miller,sam@example.com
@@ -186,7 +240,7 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 24,25000.00,GBP,PENDING,2024-03-20T17:10:00,DEBIT_CARD,Victor Lee,victor@example.com
 ```
 
-5. Fechas inválidas o vacías:
+5. Invalid or empty dates:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 25,100.00,USD,PENDING,,CREDIT_CARD,Will Smith,will@example.com
@@ -194,50 +248,58 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 27,300.00,GBP,PENDING,2024-13-45T25:61:99,CREDIT_CARD,Yara Davis,yara@example.com
 ```
 
-6. Tipos de pago inválidos:
+6. Invalid payment types:
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 28,100.00,USD,PENDING,2024-03-20T18:00:00,INVALID_TYPE,Zack Wilson,zack@example.com
 29,200.00,EUR,PENDING,2024-03-20T18:05:00,UNKNOWN,Anna Brown,anna@example.com
 30,300.00,GBP,PENDING,2024-03-20T18:10:00,,Bob Davis,bob@example.com
 ```
+</details>
 
-## Validaciones Implementadas
+<details>
+<summary>8. Implemented Validations</summary>
 
-1. **Monto**:
-   - Mínimo: 10.00
-   - Máximo: 10000.00
+1. **Amount**:
+   - Minimum: 10.00
+   - Maximum: 10000.00
 
-2. **Monedas Soportadas**:
-   - USD (Dólar Americano)
+2. **Supported Currencies**:
+   - USD (US Dollar)
    - EUR (Euro)
-   - GBP (Libra Esterlina)
-   - JPY (Yen Japonés)
+   - GBP (British Pound)
+   - JPY (Japanese Yen)
 
 3. **Email**:
-   - Formato válido
-   - No puede estar vacío
+   - Valid format
+   - Cannot be empty
 
-4. **Fecha de Pago**:
-   - No puede estar vacía
-   - Formato ISO 8601
+4. **Payment Date**:
+   - Cannot be empty
+   - ISO 8601 format
+</details>
 
-## Reportes
+<details>
+<summary>9. Reports</summary>
 
-El sistema genera tres tipos de archivos de salida:
+The system generates three types of output files:
 
-1. **processed_payments.txt**: Contiene todos los pagos válidos procesados
-2. **rejected_payments.txt**: Contiene los pagos que fallaron en la validación
-3. **payment_report.txt**: Reporte general con estadísticas de procesamiento
+1. **processed_payments.txt**: Contains all valid processed payments
+2. **rejected_payments.txt**: Contains payments that failed validation
+3. **payment_report.txt**: General report with processing statistics
+</details>
 
-## Contribución
+<details>
+<summary>10. Contributing</summary>
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+</details>
 
-## Licencia
+<details>
+<summary>11. License</summary>
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles. 
+This project is under the MIT License - see the [LICENSE](LICENSE) file for details. 
