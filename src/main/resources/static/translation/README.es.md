@@ -67,15 +67,26 @@ Este proyecto implementa un procesador de pagos usando Spring Batch que valida y
 - Spring Batch 4.3.6
 </details>
 
-<details>
-<summary>3. Configuración</summary>
 
-El proyecto utiliza diferentes perfiles para desarrollo y producción. Para ejecutar en modo desarrollo:
+<details>
+<summary>3. Configuración y Ejecución</summary>
+
+1. Clonar el repositorio:
+```bash
+git clone [url-del-repositorio]
+cd [nombre_proyecto]
+```
+
+2. El proyecto utiliza diferentes perfiles para desarrollo y producción. Para ejecutar en modo desarrollo:
 
 ```bash
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
+
 </details>
+
+
+
 
 <details>
 <summary>4. Estructura del Proyecto</summary>
