@@ -41,7 +41,7 @@
 
 Este proyecto implementa un procesador de pagos usando Spring Batch que valida y procesa pagos desde un archivo de entrada, generando archivos de salida para pagos procesados, rechazados y un reporte general.
 
-* [Functional tests playlist]() <a href="" target="_blank"> <img src="../icons/social-networks/yt.png" width="25" /></a>
+* [Functional tests playlist](https://www.youtube.com/watch?v=zPqArsLfH7o) <a href="https://www.youtube.com/watch?v=zPqArsLfH7o" target="_blank"> <img src="../icons/social-networks/yt.png" width="25" /></a>
 
 
 ## Secciones
