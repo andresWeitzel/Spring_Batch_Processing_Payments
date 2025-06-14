@@ -68,13 +68,20 @@ This project implements a payment processor using Spring Batch that validates an
 </details>
 
 <details>
-<summary>3. Configuration</summary>
+<summary>3. Configuration and Execution</summary>
 
-The project uses different profiles for development and production. To run in development mode:
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd spring_batch_processing_payments
+```
+
+2. The project uses different profiles for development and production. To run in development mode:
 
 ```bash
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
+
 </details>
 
 <details>
