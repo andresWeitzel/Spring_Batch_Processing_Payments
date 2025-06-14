@@ -301,7 +301,19 @@ El sistema genera tres tipos de archivos de salida:
 </details>
 
 <details>
-<summary>10. Contribución</summary>
+<summary>10. Pruebas Funcionales</summary>
+
+#### [See](https://www.youtube.com/watch?v=zPqArsLfH7o)
+
+  <a href="https://www.youtube.com/watch?v=zPqArsLfH7o">
+    <img src="../img/Spring_Batch_Processing_Payments_yt.png" />
+  </a> 
+
+
+</details>
+
+<details>
+<summary>11. Contribución</summary>
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -311,6 +323,6 @@ El sistema genera tres tipos de archivos de salida:
 </details>
 
 <details>
-<summary>11. Licencia</summary>
+<summary>12. Licencia</summary>
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles. 
