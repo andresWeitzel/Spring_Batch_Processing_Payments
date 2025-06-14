@@ -41,7 +41,7 @@
 
 This project implements a payment processor using Spring Batch that validates and processes payments from an input file, generating output files for processed payments, rejected payments, and a general report.
 
-* [Functional tests playlist]() <a href="" target="_blank"> <img src="./src/main/resources/static/icons/social-networks/yt.png" width="25" /></a>
+* [Functional tests video](https://www.youtube.com/watch?v=zPqArsLfH7o) <a href="https://www.youtube.com/watch?v=zPqArsLfH7o" target="_blank"> <img src="./src/main/resources/static/icons/social-networks/yt.png" width="25" /></a>
 
 
 ## Sections
