@@ -299,7 +299,7 @@ The system generates three types of output files:
 <details>
 <summary>10. Functionality Test</summary>
 
-#### [See](https://www.youtube.com/watch?v=zPqArsLfH7o)
+#### [Watch video](https://www.youtube.com/watch?v=zPqArsLfH7o)
 
   <a href="https://www.youtube.com/watch?v=zPqArsLfH7o">
     <img src="./src/main/resources/static/img/Spring_Batch_Processing_Payments_yt.png" />
