@@ -303,7 +303,7 @@ El sistema genera tres tipos de archivos de salida:
 <details>
 <summary>10. Pruebas Funcionales</summary>
 
-#### [See](https://www.youtube.com/watch?v=zPqArsLfH7o)
+#### [Ver video](https://www.youtube.com/watch?v=zPqArsLfH7o)
 
   <a href="https://www.youtube.com/watch?v=zPqArsLfH7o">
     <img src="../img/Spring_Batch_Processing_Payments_yt.png" />
