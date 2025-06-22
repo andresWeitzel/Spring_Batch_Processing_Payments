@@ -35,7 +35,7 @@
 
 <div align="center">  
 
-# Spring Batch Payments Processor ![Status](../icons/badges/status-completed.svg)
+# Spring Batch Payments Processor ![(status-completed)](../icons/badges/status-completed.svg)
 
 </div>
 
