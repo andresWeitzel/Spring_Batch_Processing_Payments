@@ -22,10 +22,10 @@
 
 <div align="right"> 
   <a href="https://github.com/andresWeitzel/Spring_Batch_Processing_Payments/blob/master/src/main/resources/static/translation/README.es.md">
-    <img width="65" height="40" src="./src/main/resources/static/icons/translation/arg-flag.jpg" />
+    <img src="./src/main/resources/static/icons/translation/arg-flag.jpg" width="65" height="40" />
   </a> 
   <a href="https://github.com/andresWeitzel/Spring_Batch_Processing_Payments/blob/master/README.md">
-    <img width="65" height="40" src="./src/main/resources/static/icons/translation/eeuu-flag.jpg" />
+    <img src="./src/main/resources/static/icons/translation/eeuu-flag.jpg" width="65" height="40" />
   </a> 
 </div>
 
