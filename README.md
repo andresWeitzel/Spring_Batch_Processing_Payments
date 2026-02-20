@@ -41,14 +41,64 @@
 
 This project implements a payment processor using Spring Batch that validates and processes payments from an input file, generating output files for processed payments, rejected payments, and a general report.
 
-* [Functional tests video](https://www.youtube.com/watch?v=zPqArsLfH7o) <a href="https://www.youtube.com/watch?v=zPqArsLfH7o" target="_blank"> <img src="./src/main/resources/static/icons/social-networks/yt.png" width="25" /></a>
+*   [Functional tests video](https://www.youtube.com/watch?v=zPqArsLfH7o) <a href="https://www.youtube.com/watch?v=zPqArsLfH7o" target="_blank"> <img src="./src/main/resources/static/icons/social-networks/yt.png" width="25" /></a>
 
+<br>
 
-## Sections
-
+## Index 📜
 
 <details>
-<summary>1. Features</summary>
+  <summary> View details </summary>
+
+<div align="right">
+
+`Latest update: 20/02/26` 
+
+</div>
+
+### Section 1) Description, Configuration and Technologies
+
+*   [1.0) Project Description.](#10-project-description-)
+*   [1.1) Project Execution.](#11-project-execution-)
+*   [1.2) Project Structure.](#12-project-structure-)
+*   [1.3) Technologies.](#13-technologies-)
+
+### Section 2) Processing Flow, File Formats and Validations
+
+*   [2.0) Processing Flow.](#20-processing-flow-)
+*   [2.1) File Formats.](#21-file-formats-)
+*   [2.2) Implemented Validations.](#22-implemented-validations-)
+
+### Section 3) Payment Examples
+
+*   [3.0) Valid Payments.](#30-valid-payments-)
+*   [3.1) Rejected Payments.](#31-rejected-payments-)
+
+### Section 4) Reports, Functionality Testing and References
+
+*   [4.0) Reports.](#40-reports-)
+*   [4.1) Functionality Test.](#41-functionality-test-)
+*   [4.2) Contributing.](#42-contributing-)
+*   [4.3) License.](#43-license-)
+
+<br>
+
+</details>
+
+<br>
+
+## Section 1) Description, Configuration and Technologies
+
+### 1.0) Project Description [🔝](#index-)
+
+<details>
+   <summary>View details</summary>
+
+  <br>
+
+This project implements a payment processor using Spring Batch that validates and processes payments from an input file, generating output files for processed payments, rejected payments, and a general report.
+
+**Features:**
 
 - Batch payment processing
 - Amount, currency, and customer data validation
@@ -56,36 +106,68 @@ This project implements a payment processor using Spring Batch that validates an
 - Report generation
 - Error handling and rejected payments
 - Support for multiple currencies (USD, EUR, GBP, JPY)
+
+<br>
+
 </details>
 
-<details>
-<summary>2. Requirements</summary>
-
-- Java 17 or higher
-- Maven 3.6 or higher
-- Spring Boot 2.7.0
-- Spring Batch 4.3.6
-</details>
+### 1.1) Project Execution [🔝](#index-)
 
 <details>
-<summary>3. Configuration and Execution</summary>
+   <summary>View details</summary>
 
-1. Clone the repository:
-```bash
-git clone [repository-url]
-cd spring_batch_processing_payments
+  <br>
+
+*   We create a work environment through some IDE, we may or may not create a root folder for the project, we position ourselves on it
+
+```git
+cd 'projectRootName'
 ```
 
-2. The project uses different profiles for development and production. To run in development mode:
+*   Once a work environment has been created, we clone the project
 
-```bash
+```git
+git clone https://github.com/andresWeitzel/Spring_Batch_Processing_Payments
+```
+
+*   We position ourselves on the project
+
+```git
+cd 'Spring_Batch_Processing_Payments'
+```
+
+*   We need [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) or higher installed
+*   We need [Maven 3.6](https://maven.apache.org/download.cgi) or higher installed
+*   We install all the necessary dependencies
+
+```git
+mvn clean install
+```
+
+*   The project uses different profiles for development and production. To run in development mode:
+
+```git
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
+*   To run in production mode:
+
+```git
+mvn spring-boot:run -Dspring-boot.run.profiles=prod
+```
+
+*   `Important`: It is possible that there are other previous steps that have not been included due to synchronization between docs in relation to development. Please open a conversation thread within the 'Issues' section of the project.
+
+<br>
+
 </details>
 
+### 1.2) Project Structure [🔝](#index-)
+
 <details>
-<summary>4. Project Structure</summary>
+   <summary>View details</summary>
+
+  <br>
 
 ```
 src/main/java/com/example/batch/
@@ -94,10 +176,44 @@ src/main/java/com/example/batch/
 ├── processor/      # Payment processors
 └── enums/          # Enumerations
 ```
+
+<br>
+
 </details>
 
+### 1.3) Technologies [🔝](#index-)
+
 <details>
-<summary>5. Processing Flow</summary>
+   <summary>View details</summary>
+
+  <br>
+
+| **Technologies** | **Version** | **Purpose** |
+| ------------- | ------------- | ------------- |
+| [Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) | 17+ | Programming Language |
+| [Spring Boot](https://spring.io/projects/spring-boot) | 2.7.0 | Application Framework |
+| [Spring Batch](https://spring.io/projects/spring-batch) | 4.3.6 | Batch Processing Framework |
+| [Maven](https://maven.apache.org/) | 3.6+ | Dependency Management and Build |
+| [JUnit](https://junit.org/junit5/) | 5 | Unit Testing Framework |
+| [Postman](https://www.postman.com/downloads/) | 10+ | Http Client for Testing |
+| [Swagger](https://swagger.io/) | 2.0 | API Documentation |
+| [Git](https://git-scm.com/downloads) | 2.29+ | Version Control |
+| Others | - | Others |
+
+<br>
+
+</details>
+
+<br>
+
+## Section 2) Processing Flow, File Formats and Validations
+
+### 2.0) Processing Flow [🔝](#index-)
+
+<details>
+   <summary>View details</summary>
+
+  <br>
 
 1. **Payment Reading**: Reads payments from `input/payments.txt`
 2. **Validation and Processing**: 
@@ -109,12 +225,20 @@ src/main/java/com/example/batch/
    - Valid payments → `output/processed_payments.txt`
    - Rejected payments → `output/rejected_payments.txt`
    - General report → `output/payment_report.txt`
+
+<br>
+
 </details>
 
-<details>
-<summary>6. File Formats</summary>
+### 2.1) File Formats [🔝](#index-)
 
-### Input File (payments.txt)
+<details>
+   <summary>View details</summary>
+
+  <br>
+
+### 2.1.0) Input File (payments.txt)
+
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
@@ -123,7 +247,10 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 4,5000.00,JPY,PENDING,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com
 ```
 
-### Processed Payments File (processed_payments.txt)
+<br>
+
+### 2.1.1) Processed Payments File (processed_payments.txt)
+
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,amountInUSD,commission,validationStatus
 1,100.00,USD,PROCESSED,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com,100.00,2.00,VALID
@@ -132,7 +259,10 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,amo
 4,5000.00,JPY,PROCESSED,2024-03-20T10:15:00,DEBIT_CARD,Alice Brown,alice@example.com,33.50,0.67,VALID
 ```
 
-### Rejected Payments File (rejected_payments.txt)
+<br>
+
+### 2.1.2) Rejected Payments File (rejected_payments.txt)
+
 ```
 id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,errorMessage
 5,5.00,USD,INVALID,2024-03-20T10:20:00,CREDIT_CARD,Charlie Wilson,charlie@example.com,Amount is below minimum allowed: 10.0
@@ -144,7 +274,10 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail,err
 11,600.00,GBP,INVALID,2024-03-20T10:50:00,CREDIT_CARD,Ivy Chen,ivy@example.com,Invalid or empty payment date
 ```
 
-### General Report File (payment_report.txt)
+<br>
+
+### 2.1.3) General Report File (payment_report.txt)
+
 ```
 === Payment Processing Report ===
 Processing Date: 2024-03-20T11:00:00
@@ -176,96 +309,17 @@ Invalid date: 1
 Total Processed (USD): 1948.40
 Total Commissions (USD): 38.97
 ```
+
+<br>
+
 </details>
 
-<details>
-<summary>7. Payment Examples</summary>
-
-### Valid Payments
-1. USD payment within allowed range:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
-2,500.00,USD,PENDING,2024-03-20T10:05:00,DEBIT_CARD,Jane Smith,jane@example.com
-3,1000.00,USD,PENDING,2024-03-20T10:10:00,CREDIT_CARD,Bob Johnson,bob@example.com
-```
-
-2. EUR payment with valid email:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-4,500.00,EUR,PENDING,2024-03-20T11:00:00,DEBIT_CARD,Jane Smith,jane.smith@example.com
-5,750.00,EUR,PENDING,2024-03-20T11:05:00,CREDIT_CARD,Alice Brown,alice.brown@example.com
-6,2500.00,EUR,PENDING,2024-03-20T11:10:00,DEBIT_CARD,Charlie Wilson,charlie.wilson@example.com
-```
-
-3. GBP payment with varied amounts:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-7,50.00,GBP,PENDING,2024-03-20T12:00:00,CREDIT_CARD,David Miller,david.miller@example.com
-8,200.00,GBP,PENDING,2024-03-20T12:05:00,DEBIT_CARD,Eva Garcia,eva.garcia@example.com
-9,5000.00,GBP,PENDING,2024-03-20T12:10:00,CREDIT_CARD,Frank Lee,frank.lee@example.com
-```
-
-4. JPY payment with different payment types:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-10,10000.00,JPY,PENDING,2024-03-20T13:00:00,CREDIT_CARD,Grace Kim,grace.kim@example.com
-11,50000.00,JPY,PENDING,2024-03-20T13:05:00,DEBIT_CARD,Henry Park,henry.park@example.com
-12,100000.00,JPY,PENDING,2024-03-20T13:10:00,CREDIT_CARD,Ivy Chen,ivy.chen@example.com
-```
-
-### Rejected Payments
-1. Very low amounts:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-13,5.00,USD,PENDING,2024-03-20T14:00:00,CREDIT_CARD,Jack Wilson,jack@example.com
-14,1.00,EUR,PENDING,2024-03-20T14:05:00,DEBIT_CARD,Kate Brown,kate@example.com
-15,0.50,GBP,PENDING,2024-03-20T14:10:00,CREDIT_CARD,Liam Davis,liam@example.com
-```
-
-2. Unsupported currencies:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-16,1000.00,MXN,PENDING,2024-03-20T15:00:00,DEBIT_CARD,Maria Garcia,maria@example.com
-17,500.00,CAD,PENDING,2024-03-20T15:05:00,CREDIT_CARD,Noah Smith,noah@example.com
-18,2000.00,AUD,PENDING,2024-03-20T15:10:00,DEBIT_CARD,Olivia Lee,olivia@example.com
-```
-
-3. Invalid emails:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-19,200.00,USD,PENDING,2024-03-20T16:00:00,CREDIT_CARD,Peter Davis,invalid-email
-20,300.00,EUR,PENDING,2024-03-20T16:05:00,DEBIT_CARD,Quinn Wilson,not-an-email
-21,400.00,GBP,PENDING,2024-03-20T16:10:00,CREDIT_CARD,Rachel Brown,missing@domain
-```
-
-4. Very high amounts:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-22,15000.00,USD,PENDING,2024-03-20T17:00:00,DEBIT_CARD,Sam Miller,sam@example.com
-23,20000.00,EUR,PENDING,2024-03-20T17:05:00,CREDIT_CARD,Tina Garcia,tina@example.com
-24,25000.00,GBP,PENDING,2024-03-20T17:10:00,DEBIT_CARD,Victor Lee,victor@example.com
-```
-
-5. Invalid or empty dates:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-25,100.00,USD,PENDING,,CREDIT_CARD,Will Smith,will@example.com
-26,200.00,EUR,PENDING,invalid-date,DEBIT_CARD,Xena Brown,xena@example.com
-27,300.00,GBP,PENDING,2024-13-45T25:61:99,CREDIT_CARD,Yara Davis,yara@example.com
-```
-
-6. Invalid payment types:
-```
-id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
-28,100.00,USD,PENDING,2024-03-20T18:00:00,INVALID_TYPE,Zack Wilson,zack@example.com
-29,200.00,EUR,PENDING,2024-03-20T18:05:00,UNKNOWN,Anna Brown,anna@example.com
-30,300.00,GBP,PENDING,2024-03-20T18:10:00,,Bob Davis,bob@example.com
-```
-</details>
+### 2.2) Implemented Validations [🔝](#index-)
 
 <details>
-<summary>8. Implemented Validations</summary>
+   <summary>View details</summary>
+
+  <br>
 
 1. **Amount**:
    - Minimum: 10.00
@@ -284,20 +338,170 @@ id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
 4. **Payment Date**:
    - Cannot be empty
    - ISO 8601 format
+
+<br>
+
 </details>
 
+<br>
+
+## Section 3) Payment Examples
+
+### 3.0) Valid Payments [🔝](#index-)
+
 <details>
-<summary>9. Reports</summary>
+   <summary>View details</summary>
+
+  <br>
+
+### 3.0.0) USD payments within allowed range
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+1,100.00,USD,PENDING,2024-03-20T10:00:00,CREDIT_CARD,John Doe,john@example.com
+2,500.00,USD,PENDING,2024-03-20T10:05:00,DEBIT_CARD,Jane Smith,jane@example.com
+3,1000.00,USD,PENDING,2024-03-20T10:10:00,CREDIT_CARD,Bob Johnson,bob@example.com
+```
+
+<br>
+
+### 3.0.1) EUR payments with valid email
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+4,500.00,EUR,PENDING,2024-03-20T11:00:00,DEBIT_CARD,Jane Smith,jane.smith@example.com
+5,750.00,EUR,PENDING,2024-03-20T11:05:00,CREDIT_CARD,Alice Brown,alice.brown@example.com
+6,2500.00,EUR,PENDING,2024-03-20T11:10:00,DEBIT_CARD,Charlie Wilson,charlie.wilson@example.com
+```
+
+<br>
+
+### 3.0.2) GBP payments with varied amounts
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+7,50.00,GBP,PENDING,2024-03-20T12:00:00,CREDIT_CARD,David Miller,david.miller@example.com
+8,200.00,GBP,PENDING,2024-03-20T12:05:00,DEBIT_CARD,Eva Garcia,eva.garcia@example.com
+9,5000.00,GBP,PENDING,2024-03-20T12:10:00,CREDIT_CARD,Frank Lee,frank.lee@example.com
+```
+
+<br>
+
+### 3.0.3) JPY payments with different payment types
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+10,10000.00,JPY,PENDING,2024-03-20T13:00:00,CREDIT_CARD,Grace Kim,grace.kim@example.com
+11,50000.00,JPY,PENDING,2024-03-20T13:05:00,DEBIT_CARD,Henry Park,henry.park@example.com
+12,100000.00,JPY,PENDING,2024-03-20T13:10:00,CREDIT_CARD,Ivy Chen,ivy.chen@example.com
+```
+
+<br>
+
+</details>
+
+### 3.1) Rejected Payments [🔝](#index-)
+
+<details>
+   <summary>View details</summary>
+
+  <br>
+
+### 3.1.0) Very low amounts
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+13,5.00,USD,PENDING,2024-03-20T14:00:00,CREDIT_CARD,Jack Wilson,jack@example.com
+14,1.00,EUR,PENDING,2024-03-20T14:05:00,DEBIT_CARD,Kate Brown,kate@example.com
+15,0.50,GBP,PENDING,2024-03-20T14:10:00,CREDIT_CARD,Liam Davis,liam@example.com
+```
+
+<br>
+
+### 3.1.1) Unsupported currencies
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+16,1000.00,MXN,PENDING,2024-03-20T15:00:00,DEBIT_CARD,Maria Garcia,maria@example.com
+17,500.00,CAD,PENDING,2024-03-20T15:05:00,CREDIT_CARD,Noah Smith,noah@example.com
+18,2000.00,AUD,PENDING,2024-03-20T15:10:00,DEBIT_CARD,Olivia Lee,olivia@example.com
+```
+
+<br>
+
+### 3.1.2) Invalid emails
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+19,200.00,USD,PENDING,2024-03-20T16:00:00,CREDIT_CARD,Peter Davis,invalid-email
+20,300.00,EUR,PENDING,2024-03-20T16:05:00,DEBIT_CARD,Quinn Wilson,not-an-email
+21,400.00,GBP,PENDING,2024-03-20T16:10:00,CREDIT_CARD,Rachel Brown,missing@domain
+```
+
+<br>
+
+### 3.1.3) Very high amounts
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+22,15000.00,USD,PENDING,2024-03-20T17:00:00,DEBIT_CARD,Sam Miller,sam@example.com
+23,20000.00,EUR,PENDING,2024-03-20T17:05:00,CREDIT_CARD,Tina Garcia,tina@example.com
+24,25000.00,GBP,PENDING,2024-03-20T17:10:00,DEBIT_CARD,Victor Lee,victor@example.com
+```
+
+<br>
+
+### 3.1.4) Invalid or empty dates
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+25,100.00,USD,PENDING,,CREDIT_CARD,Will Smith,will@example.com
+26,200.00,EUR,PENDING,invalid-date,DEBIT_CARD,Xena Brown,xena@example.com
+27,300.00,GBP,PENDING,2024-13-45T25:61:99,CREDIT_CARD,Yara Davis,yara@example.com
+```
+
+<br>
+
+### 3.1.5) Invalid payment types
+
+```
+id,amount,currency,status,paymentDate,paymentType,customerName,customerEmail
+28,100.00,USD,PENDING,2024-03-20T18:00:00,INVALID_TYPE,Zack Wilson,zack@example.com
+29,200.00,EUR,PENDING,2024-03-20T18:05:00,UNKNOWN,Anna Brown,anna@example.com
+30,300.00,GBP,PENDING,2024-03-20T18:10:00,,Bob Davis,bob@example.com
+```
+
+<br>
+
+</details>
+
+<br>
+
+## Section 4) Reports, Functionality Testing and References
+
+### 4.0) Reports [🔝](#index-)
+
+<details>
+   <summary>View details</summary>
+
+  <br>
 
 The system generates three types of output files:
 
-1. **processed_payments.txt**: Contains all valid processed payments
-2. **rejected_payments.txt**: Contains payments that failed validation
-3. **payment_report.txt**: General report with processing statistics
+1. **processed_payments.txt**: Contains all valid processed payments with calculated commissions and USD conversion amounts.
+2. **rejected_payments.txt**: Contains payments that failed validation along with the corresponding error message.
+3. **payment_report.txt**: General report with processing statistics including currency statistics, payment type statistics, rejection reasons, and total amounts.
+
+<br>
+
 </details>
 
+### 4.1) Functionality Test [🔝](#index-)
+
 <details>
-<summary>10. Functionality Test</summary>
+   <summary>View details</summary>
+
+  <br>
 
 #### [Watch video](https://www.youtube.com/watch?v=zPqArsLfH7o)
 
@@ -305,22 +509,36 @@ The system generates three types of output files:
     <img src="./src/main/resources/static/img/Spring_Batch_Processing_Payments_yt.png" />
   </a> 
 
+<br>
 
 </details>
 
-
+### 4.2) Contributing [🔝](#index-)
 
 <details>
-<summary>11. Contributing</summary>
+   <summary>View details</summary>
+
+  <br>
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+<br>
+
 </details>
 
-<details>
-<summary>12. License</summary>
+### 4.3) License [🔝](#index-)
 
-This project is under the MIT License - see the [LICENSE](LICENSE) file for details. 
+<details>
+   <summary>View details</summary>
+
+  <br>
+
+This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<br>
+
+</details>
